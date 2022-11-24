@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import XoBox from '../components/XoBox'
 
-import { GameState, PlayerTurn } from '../type';
+import { GameState, PlayerTurn, WhoWon } from '../type';
 
 
 const WINNING_COMBINATIONS = [
@@ -26,7 +26,7 @@ const Singleplayer = () => {
   const defaultGameState: GameState = ['', '', '', '', '', '', '', '', '']
   const [gameState, setGameState] = useState<GameState>(defaultGameState)
   const playerTurn = useRef<PlayerTurn>('X')
-  const [whoWon, setWhoWon] = useState<PlayerTurn | null>(null)
+  const [whoWon, setWhoWon] = useState<WhoWon>(null)
 
   useEffect(() => {
     setWhoWon(null)
@@ -41,6 +41,10 @@ const Singleplayer = () => {
 
     if (checkWin(newGameState, playerTurn.current)) {
       setWhoWon(playerTurn.current)
+    }
+
+    if(!newGameState.includes("")){
+      setWhoWon("DRAW")
     }
 
     playerTurn.current = playerTurn.current === 'X' ? 'O' : 'X';
@@ -66,7 +70,7 @@ const Singleplayer = () => {
       <XoBox whoWon={whoWon} onChange={() => handleBoxChange(8)} value={gameState[8]} />
 
       <div>{whoWon && <>
-        <h1>{`User ${whoWon} won!`}</h1>
+        <h1>{whoWon !== "DRAW" && whoWon? `User ${whoWon} won!` : 'DRAW' }</h1>
         <button onClick={() => restartGame()} >NEW GAME</button>
       </>}
       </div>
