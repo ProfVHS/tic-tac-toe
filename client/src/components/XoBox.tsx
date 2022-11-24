@@ -1,11 +1,11 @@
 import React from 'react'
 
-import {GameState, PlayerTurn } from '../type';
+import {GameState, PlayerTurn, WhoWon } from '../type';
 
 interface XoBoxProps{
     value: ('' | 'X' | 'O');
     onChange: () => void;
-    whoWon: PlayerTurn | null;
+    whoWon: WhoWon;
     isPlayerTurn?: boolean;
 }
 
