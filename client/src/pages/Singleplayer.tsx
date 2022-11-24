@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
+import Scoreboard from '../components/Scoreboard';
 import XoBox from '../components/XoBox'
 
 import { GameState, PlayerTurn, WhoWon } from '../type';
@@ -28,6 +29,9 @@ const Singleplayer = () => {
   const playerTurn = useRef<PlayerTurn>('X')
   const [whoWon, setWhoWon] = useState<WhoWon>(null)
 
+  const [xWins, setXWins] = useState<number>(0)
+  const [oWins, setOWins] = useState<number>(0)
+
   useEffect(() => {
     setWhoWon(null)
   }, [])
@@ -41,6 +45,7 @@ const Singleplayer = () => {
 
     if (checkWin(newGameState, playerTurn.current)) {
       setWhoWon(playerTurn.current)
+      playerTurn.current === 'X' ? setXWins(xWins + 1) : setOWins(oWins + 1);
     }
 
     if(!newGameState.includes("")){
@@ -57,6 +62,7 @@ const Singleplayer = () => {
 
   return (
     <>
+      <Scoreboard xWins={xWins} oWins={oWins} />
       <XoBox whoWon={whoWon} onChange={() => handleBoxChange(0)} value={gameState[0]} />
       <XoBox whoWon={whoWon} onChange={() => handleBoxChange(1)} value={gameState[1]} />
       <XoBox whoWon={whoWon} onChange={() => handleBoxChange(2)} value={gameState[2]} />
