@@ -149,7 +149,7 @@ const Multiplayer = () => {
         {whoWon && <div className='result'>
           <h1>{whoWon !== "DRAW" && whoWon ? `User ${whoWon} won!` : 'DRAW'}</h1>
           {inRoom === "X" && <>
-            <button onClick={() => restartGame()} >NEW GAME</button>
+            <button className='result__btn' onClick={() => restartGame()} >NEW GAME</button>
           </>}
         </div>}
       </>}
