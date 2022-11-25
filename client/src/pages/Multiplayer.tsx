@@ -112,41 +112,48 @@ const Multiplayer = () => {
   }, [socket])
 
   return (
-    <>
-      {!inRoom && <>
-        <button onClick={createRoom}>Create Room</button>
-        <span>OR</span>
-        <input placeholder='Room Code' onChange={(event) => { setRoom(event.target.value) }} />
-        <button onClick={joinRoom}>Join Game</button>
-      </>}
+    <div className='wrapper'>
+      {!inRoom && <div className='card'>
+        <span className='card__title'>Multiplayer Room</span>
+        <button className='card__button' onClick={createRoom}>Create Room</button>
+        <span className='card__text'>OR</span>
+        <div className='card__group'>
+          <input className='card__input' placeholder='Room Code' onChange={(event) => { setRoom(event.target.value) }} />
+          <button className='card__button' onClick={joinRoom}>Join Game</button>
+        </div>
+      </div>}
 
       {inRoom && <>
-        <h2>You are Player {inRoom}</h2>
-        <h1>Room: {room}</h1>
-        <h2>Turn: Player {playerTurn.current}</h2>
+        <div className='gameInfo'>
+          <h2>You are Player {inRoom}</h2>
+          <h1 className='gameInfo__room'>Room: {room}</h1>
+          <h2>Turn: Player {playerTurn.current}</h2>
+        </div>
 
         <Scoreboard xWins={xWins} oWins={oWins} />
-        <XoBox whoWon={whoWon} isPlayerTurn={playerTurn.current === inRoom} onChange={() => handleBoxChange(0)} value={gameState[0]} />
-        <XoBox whoWon={whoWon} isPlayerTurn={playerTurn.current === inRoom} onChange={() => handleBoxChange(1)} value={gameState[1]} />
-        <XoBox whoWon={whoWon} isPlayerTurn={playerTurn.current === inRoom} onChange={() => handleBoxChange(2)} value={gameState[2]} />
-        <br />
-        <XoBox whoWon={whoWon} isPlayerTurn={playerTurn.current === inRoom} onChange={() => handleBoxChange(3)} value={gameState[3]} />
-        <XoBox whoWon={whoWon} isPlayerTurn={playerTurn.current === inRoom} onChange={() => handleBoxChange(4)} value={gameState[4]} />
-        <XoBox whoWon={whoWon} isPlayerTurn={playerTurn.current === inRoom} onChange={() => handleBoxChange(5)} value={gameState[5]} />
-        <br />
-        <XoBox whoWon={whoWon} isPlayerTurn={playerTurn.current === inRoom} onChange={() => handleBoxChange(6)} value={gameState[6]} />
-        <XoBox whoWon={whoWon} isPlayerTurn={playerTurn.current === inRoom} onChange={() => handleBoxChange(7)} value={gameState[7]} />
-        <XoBox whoWon={whoWon} isPlayerTurn={playerTurn.current === inRoom} onChange={() => handleBoxChange(8)} value={gameState[8]} />
 
-        <div>{whoWon && <>
+        <div className='grid'>
+          <XoBox whoWon={whoWon} isPlayerTurn={playerTurn.current === inRoom} onChange={() => handleBoxChange(0)} value={gameState[0]} />
+          <XoBox whoWon={whoWon} isPlayerTurn={playerTurn.current === inRoom} onChange={() => handleBoxChange(1)} value={gameState[1]} />
+          <XoBox whoWon={whoWon} isPlayerTurn={playerTurn.current === inRoom} onChange={() => handleBoxChange(2)} value={gameState[2]} />
+
+          <XoBox whoWon={whoWon} isPlayerTurn={playerTurn.current === inRoom} onChange={() => handleBoxChange(3)} value={gameState[3]} />
+          <XoBox whoWon={whoWon} isPlayerTurn={playerTurn.current === inRoom} onChange={() => handleBoxChange(4)} value={gameState[4]} />
+          <XoBox whoWon={whoWon} isPlayerTurn={playerTurn.current === inRoom} onChange={() => handleBoxChange(5)} value={gameState[5]} />
+
+          <XoBox whoWon={whoWon} isPlayerTurn={playerTurn.current === inRoom} onChange={() => handleBoxChange(6)} value={gameState[6]} />
+          <XoBox whoWon={whoWon} isPlayerTurn={playerTurn.current === inRoom} onChange={() => handleBoxChange(7)} value={gameState[7]} />
+          <XoBox whoWon={whoWon} isPlayerTurn={playerTurn.current === inRoom} onChange={() => handleBoxChange(8)} value={gameState[8]} />
+        </div>
+
+        {whoWon && <div className='result'>
           <h1>{whoWon !== "DRAW" && whoWon ? `User ${whoWon} won!` : 'DRAW'}</h1>
           {inRoom === "X" && <>
-              <button onClick={() => restartGame()} >NEW GAME</button>
-            </>}
-        </>}
-        </div>
+            <button onClick={() => restartGame()} >NEW GAME</button>
+          </>}
+        </div>}
       </>}
-    </>
+    </div>
   )
 }
 
