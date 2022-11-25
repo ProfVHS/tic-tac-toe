@@ -1,0 +1,125 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap");
+body {
+  margin: 0 !important;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+}
+
+.scoreboard {
+  font-family: "Open Sans", sans-serif;
+  font-size: 32px;
+  display: grid;
+  grid-template-columns: 200px 200px;
+  grid-template-rows: 50px 100px;
+  box-shadow: 0px 2px 4px gray;
+  border-radius: 10px;
+  margin: 15px;
+}
+.scoreboard__player {
+  display: flex;
+  justify-content: center;
+  grid-row: 0;
+}
+.scoreboard__player.X {
+  background-color: #FF6961;
+  border-top-left-radius: 10px;
+}
+.scoreboard__player.O {
+  background-color: #A7C7E7;
+  border-top-right-radius: 10px;
+}
+.scoreboard__score {
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 64px;
+}
+.scoreboard__score.X {
+  border-bottom-left-radius: 10px;
+}
+.scoreboard__score.O {
+  border-bottom-right-radius: 10px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 100px 100px 100px;
+  grid-template-rows: 100px 100px 100px;
+  -moz-column-gap: 8px;
+       column-gap: 8px;
+  row-gap: 8px;
+}
+
+.box {
+  border: none;
+  border-radius: 5px;
+  background-color: white;
+  color: white;
+  box-shadow: 0px 2px 4px gray;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 1000;
+  font-size: 2px;
+  transition: 0.3s ease;
+  cursor: pointer;
+}
+
+.box:hover {
+  background-color: rgb(245, 245, 245);
+  box-shadow: 0px 2px 4px rgb(97, 160, 3);
+}
+
+.box.X {
+  color: blue;
+  font-size: 72px;
+}
+
+.box.O {
+  color: red;
+  font-size: 72px;
+}
+
+.box.O:hover,
+.box.X:hover {
+  box-shadow: 0px 2px 4px red;
+}
+
+.result {
+  width: 300px;
+  box-shadow: 0px 2px 4px gray;
+  border-radius: 10px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Open Sans", sans-serif;
+  font-size: 28px;
+  padding: 15px;
+  margin: 15px;
+}
+.result__btn {
+  background-color: hsl(118deg, 57%, 65%);
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0px 2px 4px gray;
+  margin: 15px;
+  padding: 15px;
+  cursor: pointer;
+  transition: 0.3s ease;
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
+}
+.result__btn:hover {
+  box-shadow: inset 0px 2px 4px gray;
+  background-color: hsl(118deg, 57%, 50%);
+}/*# sourceMappingURL=styles.css.map */
