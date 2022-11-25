@@ -5,6 +5,7 @@ const App = () => {
   return (
     <>
       <Link to="/singleplayer">Singleplayer</Link>
+      <Link to="/multiplayer">Multiplayer</Link>
     </>
   );
 };
