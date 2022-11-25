@@ -8,10 +8,10 @@ interface ScoreboardProps{
 function Scoreboard({xWins, oWins}: ScoreboardProps) {
     return (
         <div className='scoreboard'>
-            <div>Player X</div>
-            <div>{xWins}</div>
-            <div>Player O</div>
-            <div>{oWins}</div>
+            <div className='scoreboard__player X'>Player X</div>
+            <div className='scoreboard__player O'>Player O</div>
+            <div className='scoreboard__score X'>{xWins}</div>
+            <div className='scoreboard__score O'>{oWins}</div>
         </div>
     )
 }

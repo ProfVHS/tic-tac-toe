@@ -48,7 +48,7 @@ const Singleplayer = () => {
       playerTurn.current === 'X' ? setXWins(xWins + 1) : setOWins(oWins + 1);
     }
 
-    if(!newGameState.includes("")){
+    if (!newGameState.includes("")) {
       setWhoWon("DRAW")
     }
 
@@ -61,26 +61,26 @@ const Singleplayer = () => {
   }
 
   return (
-    <>
+    <div className='wrapper'>
       <Scoreboard xWins={xWins} oWins={oWins} />
-      <XoBox whoWon={whoWon} onChange={() => handleBoxChange(0)} value={gameState[0]} />
-      <XoBox whoWon={whoWon} onChange={() => handleBoxChange(1)} value={gameState[1]} />
-      <XoBox whoWon={whoWon} onChange={() => handleBoxChange(2)} value={gameState[2]} />
-      <br />
-      <XoBox whoWon={whoWon} onChange={() => handleBoxChange(3)} value={gameState[3]} />
-      <XoBox whoWon={whoWon} onChange={() => handleBoxChange(4)} value={gameState[4]} />
-      <XoBox whoWon={whoWon} onChange={() => handleBoxChange(5)} value={gameState[5]} />
-      <br />
-      <XoBox whoWon={whoWon} onChange={() => handleBoxChange(6)} value={gameState[6]} />
-      <XoBox whoWon={whoWon} onChange={() => handleBoxChange(7)} value={gameState[7]} />
-      <XoBox whoWon={whoWon} onChange={() => handleBoxChange(8)} value={gameState[8]} />
-
-      <div>{whoWon && <>
-        <h1>{whoWon !== "DRAW" && whoWon? `User ${whoWon} won!` : 'DRAW' }</h1>
-        <button onClick={() => restartGame()} >NEW GAME</button>
-      </>}
+      <div className='grid'>
+        <XoBox whoWon={whoWon} onChange={() => handleBoxChange(0)} value={gameState[0]} />
+        <XoBox whoWon={whoWon} onChange={() => handleBoxChange(1)} value={gameState[1]} />
+        <XoBox whoWon={whoWon} onChange={() => handleBoxChange(2)} value={gameState[2]} />
+        
+        <XoBox whoWon={whoWon} onChange={() => handleBoxChange(3)} value={gameState[3]} />
+        <XoBox whoWon={whoWon} onChange={() => handleBoxChange(4)} value={gameState[4]} />
+        <XoBox whoWon={whoWon} onChange={() => handleBoxChange(5)} value={gameState[5]} />
+        
+        <XoBox whoWon={whoWon} onChange={() => handleBoxChange(6)} value={gameState[6]} />
+        <XoBox whoWon={whoWon} onChange={() => handleBoxChange(7)} value={gameState[7]} />
+        <XoBox whoWon={whoWon} onChange={() => handleBoxChange(8)} value={gameState[8]} />
       </div>
-    </>
+      {whoWon && <div className='result'>
+          <span>{whoWon !== "DRAW" && whoWon ? `User ${whoWon} won!` : 'DRAW'}</span>
+          <button className='result__btn' onClick={() => restartGame()} >NEW GAME</button>
+        </div>}
+    </div>
   )
 }
 

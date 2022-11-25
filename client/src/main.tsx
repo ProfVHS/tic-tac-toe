@@ -5,6 +5,8 @@ import App from './App'
 import Multiplayer from './pages/Multiplayer'
 import Singleplayer from './pages/Singleplayer'
 
+import "./styles/css/styles.css"
+
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
     <BrowserRouter>
