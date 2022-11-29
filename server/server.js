@@ -1,10 +1,16 @@
 const express = require("express");
 const app = express();
 const http = require("http");
+const path = require("path")
 const {Server} = require("socket.io");
 const cors = require("cors");
 
 app.use(cors())
+app.use(express.static(path.resolve(__dirname, "./dist")));
+
+app.get('*', (req,res) => {
+    res.sendFile(path.resolve(__dirname, "./dist/index.html"));
+});
 const server = http.createServer(app);
 
 const io = new Server(server, {
