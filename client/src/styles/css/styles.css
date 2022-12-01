@@ -2,9 +2,9 @@
 body {
   margin: 0 !important;
   -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 .wrapper {
@@ -31,11 +31,11 @@ body {
   grid-row: 0;
 }
 .scoreboard__player.X {
-  background-color: #FF6961;
+  background-color: #a7c7e7;
   border-top-left-radius: 10px;
 }
 .scoreboard__player.O {
-  background-color: #A7C7E7;
+  background-color: #ff6961;
   border-top-right-radius: 10px;
 }
 .scoreboard__score {
@@ -57,7 +57,7 @@ body {
   grid-template-columns: 100px 100px 100px;
   grid-template-rows: 100px 100px 100px;
   -moz-column-gap: 8px;
-       column-gap: 8px;
+  column-gap: 8px;
   row-gap: 8px;
 }
 
@@ -185,7 +185,7 @@ body {
 }
 .gameInfo__room {
   -webkit-user-select: text;
-     -moz-user-select: text;
-      -ms-user-select: text;
-          user-select: text;
-}/*# sourceMappingURL=styles.css.map */
+  -moz-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
+} /*# sourceMappingURL=styles.css.map */
